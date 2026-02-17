@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* Bloom Kitchen Palette */
+  --color-background: 0 0% 100%;
+  --color-foreground: 222.2 84% 4.9%;
+
+  /* Soft Gradient Backgrounds */
+  --color-gradient-start: 270 50% 96%;
+  /* #f3e8ff */
+  --color-gradient-end: 210 50% 98%;
+  /* #f0f9ff */
+
+  /* Primary Action Color */
+  --color-primary: 200 90% 45%;
+  --color-primary-foreground: 210 40% 98%;
+
+  /* Secondary / Accents */
+  --color-secondary: 270 30% 96%;
+  --color-accent-purple: 270 60% 60%;
+  --color-accent-green: 150 60% 45%;
+  --color-accent-orange: 25 90% 65%;
+
+  --radius-xl: 1rem;
+}
+
+/* Custom CSS Variables not in theme but used in HSL */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+}
+
+body {
+  background: linear-gradient(135deg, hsl(300 30% 98%) 0%, hsl(260 30% 96%) 100%);
+  color: hsl(var(--foreground));
+  font-family: var(--font-inter), ui-sans-serif, system-ui;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Utilities */
+@utility glass-card {
+  @apply bg-white/70 backdrop-blur-lg border border-white/50 shadow-xl;
+}
+
+@utility glass-input {
+  @apply bg-white/50 border border-transparent focus:border-cyan-400 focus:bg-white focus:ring-2 focus:ring-cyan-100 transition-all outline-none;
+}
