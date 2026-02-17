@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
               {children}
             </div>
           </main>
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
