@@ -1,10 +1,10 @@
 "use client";
 
-import { useRecipeStore } from "@/store/useRecipeStore";
+import { useRecipes } from "@/store/useRecipeStore";
 import { Trash2, ChefHat, Clock, Flame, Image as ImageIcon } from "lucide-react";
 
 const RecipeList = () => {
-    const { recipes, deleteRecipe } = useRecipeStore();
+    const { recipes, deleteRecipe } = useRecipes();
 
     if (recipes.length === 0) {
         return (

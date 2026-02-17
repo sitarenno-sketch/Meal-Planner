@@ -1,7 +1,7 @@
 "use client";
 
-import { usePlanStore } from "@/store/usePlanStore";
-import { useRecipeStore } from "@/store/useRecipeStore";
+import { useMealPlan } from "@/store/usePlanStore";
+import { useRecipes } from "@/store/useRecipeStore";
 import { ShoppingCart, Printer, Check, Share2 } from "lucide-react";
 import { useMemo } from "react";
 
@@ -13,8 +13,8 @@ type AggregatedIngredient = {
 };
 
 export default function GroceryListPage() {
-    const { plan } = usePlanStore();
-    const { recipes } = useRecipeStore();
+    const { plan } = useMealPlan();
+    const { recipes } = useRecipes();
 
     const groceryList = useMemo(() => {
         const list: Record<string, AggregatedIngredient> = {};

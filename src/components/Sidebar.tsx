@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChefHat, CalendarDays, ShoppingCart, Settings, Activity } from "lucide-react";
+import { UserButton } from "@clerk/nextjs";
 import clsx from "clsx";
 
 const Sidebar = () => {
@@ -48,12 +49,15 @@ const Sidebar = () => {
             </nav>
 
             <div className="p-6">
-                <div className="flex items-center gap-3 px-4 py-3.5 rounded-2xl text-gray-400 hover:text-gray-600 hover:bg-white/50 cursor-pointer transition-all">
-                    <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-400 flex items-center justify-center">
-                        <div className="w-full h-full rounded-full bg-gradient-to-br from-orange-200 to-yellow-200" />
-                    </div>
-                    <span className="font-medium text-gray-600">My Kitchen</span>
-                    <Settings className="w-4 h-4 ml-auto opacity-50" />
+                <div className="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white/50">
+                    <UserButton
+                        appearance={{
+                            elements: {
+                                avatarBox: "w-8 h-8"
+                            }
+                        }}
+                    />
+                    <span className="font-medium text-gray-600">My Account</span>
                 </div>
             </div>
         </aside>

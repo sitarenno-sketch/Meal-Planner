@@ -11,8 +11,8 @@ import {
     DragEndEvent,
     useDraggable
 } from '@dnd-kit/core';
-import { useRecipeStore, Recipe } from '@/store/useRecipeStore';
-import { usePlanStore, PlayEntry, MealType } from '@/store/usePlanStore';
+import { useRecipes, Recipe } from '@/store/useRecipeStore';
+import { useMealPlan, PlayEntry, MealType } from '@/store/usePlanStore';
 import DraggableRecipe from './DraggableRecipe';
 import DroppableSlot from './DroppableSlot';
 import { Trash2, GripVertical } from 'lucide-react';
@@ -22,8 +22,8 @@ const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 const MEALS: MealType[] = ['breakfast', 'lunch', 'dinner'];
 
 const PlannerBoard = () => {
-    const { recipes } = useRecipeStore();
-    const { plan, addToPlan, moveInPlan, removeFromPlan } = usePlanStore();
+    const { recipes } = useRecipes();
+    const { plan, addToPlan, moveInPlan, removeFromPlan } = useMealPlan();
     const [activeRecipe, setActiveRecipe] = useState<Recipe | null>(null);
 
     // Sensors

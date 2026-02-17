@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { Plus, Trash2, Save, Check, Image as ImageIcon, Clock, Users, ArrowLeft } from "lucide-react";
-import { useRecipeStore, Ingredient } from "@/store/useRecipeStore";
+import { useRecipes, Ingredient } from "@/store/useRecipeStore";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 
 const RecipeBuilder = () => {
-    const addRecipe = useRecipeStore((state) => state.addRecipe);
+    const { addRecipe } = useRecipes();
 
     // Core Data
     const [name, setName] = useState("");
@@ -69,11 +69,6 @@ const RecipeBuilder = () => {
             ingredients,
             instructions: instructions.map(i => i.text),
             calories: Number(calories) || 0,
-            macros: {
-                protein: Number(macros.protein) || 0,
-                carbs: Number(macros.carbs) || 0,
-                fats: Number(macros.fats) || 0,
-            },
             color: "bg-purple-100 text-purple-800" // Default fallback
         });
 
